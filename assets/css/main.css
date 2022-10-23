@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Poppins:wght@400;500;800&display=swap");
+:root {
+  font-size: 62.5%;
+  --primary-color:#91B974;
+  --details-color:#B87B45;
+  --secondary-color:#ACC780;
+  --bg-color:#F8F8F8;
+  --text-color:#1B1B1B;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+    font-size: 1.6rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+section {
+  padding-block: 4.8rem;
+}
+
+ul {
+    list-style: none;
+  }
+
+h1{
+    line-height: 130%;
+    font-size: 3.6rem;
+    font-family: 'Poppins', sans-serif;
+    line-height: 120%;
+}
+
+h2{
+    font-weight: 700;
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+    line-height: 120%;
+}
+
+.container {
+  width: min(50rem, 100%);
+  padding-inline: 2.4rem;
+  margin: 0 auto;
+}
+
+/* Navigation */
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+}
+.hamburger:hover {
+  opacity: 0.7;
+}
+.hamburger.is-active:hover {
+  opacity: 0.7;
+}
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: var(--bg-color);
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  display: block;
+}
+.hamburger-inner::before {
+  top: -10px;
+}
+.hamburger-inner::after {
+  bottom: -10px;
+}
+.hamburger--emphatic {
+  overflow: hidden;
+}
+.hamburger--emphatic .hamburger-inner {
+  transition: background-color 0.125s 0.175s ease-in;
+}
+.hamburger--emphatic .hamburger-inner::before {
+  left: 0;
+  transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335),
+    top 0.05s 0.125s linear, left 0.125s 0.175s ease-in;
+}
+.hamburger--emphatic .hamburger-inner::after {
+  top: 10px;
+  right: 0;
+  transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335),
+    top 0.05s 0.125s linear, right 0.125s 0.175s ease-in;
+}
+.hamburger--emphatic.is-active .hamburger-inner {
+  transition-delay: 0s;
+  transition-timing-function: ease-out;
+  background-color: transparent !important;
+}
+.hamburger--emphatic.is-active .hamburger-inner::before {
+  left: -80px;
+  top: -80px;
+  transform: translate3d(80px, 80px, 0) rotate(45deg);
+  transition: left 0.125s ease-out, top 0.05s 0.125s linear,
+    transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.hamburger--emphatic.is-active .hamburger-inner::after {
+  right: -80px;
+  top: -80px;
+  transform: translate3d(-80px, 80px, 0) rotate(-45deg);
+  transition: right 0.125s ease-out, top 0.05s 0.125s linear,
+    transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+nav {
+    display: flex;
+    width: 100vw;
+    height: var(--nav-heigth);
+    position: fixed;
+    top: 0;
+    transition: 0.2s ease-in-out;
+    z-index: 100;
+}
+
+nav .menu{
+  position: fixed;
+}
+
+
+#navigation .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 2rem;
+}
+
+.menu{
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-100%, -100%);
+}
+
+body.show-menu  {
+    overflow: hidden;
+}
+
+body.show-menu  #navigation .container .logo{
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2000;
+}
+
+body.show-menu  #navigation .container .menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4.8rem;
+    opacity: 1;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translate(0, 0);
+    transition: transform 0.3s ease-in-out;
+    background-color: var(--secondary-color);
+        
+}
+
+body.show-menu  #navigation .container .menu ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+body.show-menu  #navigation .container .menu ul li{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+body.show-menu  #navigation .container .menu ul li a{
+    text-decoration: none;
+    color: var(--bg-color);
+}
+
+body.show-menu  #navigation .container .menu ul li a h2{
+    font-size: 3rem;
+}
+
+body.show-menu #navigation .container .sign{
+    display: flex;
+    gap: 2.4rem;
+}
+
+body.show-menu #navigation .container .sign .btn{
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 2.3rem;
+    color: var(--bg-color);
+    padding: 1.6rem 3.2rem;
+    background-color: var(--text-color);
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+}
+
+body.show-menu #navigation .container .sign .btn-outline{
+    background: transparent;
+    border: 4px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1.6rem 3.2rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    color: var(--bg-color);
+    box-shadow: rgba(51, 47, 47, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: 0.3s ease-in-out;
+}
+
+body.show-menu #navigation .container .sign .btn:hover{
+    background-color: #282828;
+    box-shadow: rgba(51, 47, 47, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+body.show-menu #navigation .container .sign .btn-outline:hover{
+    background: var(--primary-color);
+}
+
+
+
+
+
+/* Navigation */
