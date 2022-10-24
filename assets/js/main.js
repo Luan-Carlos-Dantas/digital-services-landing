@@ -10,7 +10,7 @@ var forEach = function (t, o, r) {
 
 let body = document.querySelector('body');
 let hamburgers = document.querySelectorAll(".hamburger");
-let hamburger = document.querySelectorAll(".hamburger .hamburger--emphatic");
+let hamburger = document.querySelector(".hamburger");
 if (hamburgers.length > 0) {
   forEach(hamburgers, function (hamburger) {
     hamburger.addEventListener(
@@ -30,6 +30,12 @@ if (hamburgers.length > 0) {
         });
   });
 }
+
+function closeMenu(){
+  body.classList.remove('show-menu');
+  hamburger.classList.remove("is-active");
+}
+
 
 window.addEventListener('load', ()=>{
     if(body.classList.contains('show-menu')){
