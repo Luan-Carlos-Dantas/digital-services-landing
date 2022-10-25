@@ -42,3 +42,27 @@ window.addEventListener('load', ()=>{
         body.classList.remove('show-menu')
     }
 })
+
+// Testimonials slide
+const swiper = new Swiper('.swiper',{
+    loop: true,
+    slidesPerView: 1,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+    mousewheel: true,
+    keyboard: true,
+    breakpoints:{
+      1400:{
+        slidesPerView:2,
+        setWrapperSize:true
+      }
+    },
+});
+
+swiper.slideNext();
