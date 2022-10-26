@@ -1,4 +1,19 @@
+window.addEventListener('scroll', onScroll)
+onScroll()
 
+function onScroll(){
+  showNavOnScroll()
+}
+
+function showNavOnScroll(){
+  let menu = document.querySelector('#navigation')
+
+  if(scrollY != 0){
+      menu.classList.add("scroll")
+  }else{
+      menu.classList.remove("scroll")
+  }
+}
 
 var forEach = function (t, o, r) {
   if ("[object Object]" === Object.prototype.toString.call(t))
@@ -31,16 +46,14 @@ if (hamburgers.length > 0) {
   });
 }
 
-function closeMenu(){
-  body.classList.remove('show-menu');
-  hamburger.classList.remove("is-active");
-}
 
 
 window.addEventListener('load', ()=>{
     if(body.classList.contains('show-menu')){
         body.classList.remove('show-menu')
     }
+
+    console.log('oi')
 })
 
 // Testimonials slide
