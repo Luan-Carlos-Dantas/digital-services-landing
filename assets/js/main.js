@@ -46,6 +46,13 @@ if (hamburgers.length > 0) {
   });
 }
 
+function closeMenu(){
+  if(body.classList.contains('show-menu')){
+    body.classList.remove('show-menu')
+    hamburger.classList.remove("is-active")
+  }
+}
+
 
 
 window.addEventListener('load', ()=>{

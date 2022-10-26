@@ -228,7 +228,7 @@ nav .menu {
 }
 
 body.show-menu {
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 body.show-menu #navigation .container .brand .logo a {
